@@ -1,15 +1,14 @@
-import { SSTConfig } from 'sst';
-import { API } from './stacks/MyStack';
-import { Api } from 'sst/constructs';
+import { SSTConfig } from "sst";
+import { ExampleStack } from "./stacks/ExampleStack"
 
 export default {
   config(_input) {
     return {
-      name: 'lunar-invoice-service',
-      region: 'us-east-1',
+      name: "backend",
+      region: "us-east-1",
     };
   },
   stacks(app) {
-    app.stack(API);
+    app.stack(ExampleStack)
   },
-};
+} satisfies SSTConfig;

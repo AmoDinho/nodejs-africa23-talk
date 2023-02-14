@@ -1,5 +1,5 @@
 {
-  "name": "@my-sst-app/functions",
+  "name": "@backend/functions",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,9 +9,9 @@
   "devDependencies": {
     "@types/node": "^18.13.0",
     "@types/aws-lambda": "^8.10.110",
-    "sst": "^2.0.12"
+    "sst": "^2.0.23"
   },
   "dependencies": {
-    "sst": "^2.0.12"
+    "sst": "^2.0.23"
   }
 }
