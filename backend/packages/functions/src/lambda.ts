@@ -1,6 +1,7 @@
-import { gql, ApolloServer } from "apollo-server-lambda";
+import { GraphQLHandler } from '@serverless-stack/node/graphql';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 
-const typeDefs = gql`
+const typeDefs = `
   type Query {
     hello: String
   }
@@ -8,14 +9,15 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    hello: () => "Hello, New World!",
+    hello: () => 'Hello, New World!',
   },
 };
 
-const server = new ApolloServer({
+const server = makeExecutableSchema({
   typeDefs,
   resolvers,
-  introspection: !!process.env.IS_LOCAL,
 });
 
-export const handler = server.createHandler();
+export const handler = GraphQLHandler({
+  schema: server,
+});
