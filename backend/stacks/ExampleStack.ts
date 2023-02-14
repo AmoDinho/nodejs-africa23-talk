@@ -1,12 +1,20 @@
-import { GraphQLApi, StackContext } from "sst/constructs";
+import { Api, StackContext } from '@serverless-stack/resources';
 
 export function ExampleStack({ stack }: StackContext) {
   // Create the GraphQL API
-  const api = new GraphQLApi(stack, "ApolloApi", {
-    server: {
-      handler: "packages/functions/src/lambda.handler",
-      nodejs: {
-        format: "cjs",
+  const api = new Api(stack, 'ApolloApi', {
+    routes: {
+      'POST/': {
+        type: 'graphql',
+        function: 'packages/functions/src/lambda.handler',
+      },
+    },
+    defaults: {
+      function: {
+        bundle: {
+          format: 'esm',
+        },
+        timeout: 20,
       },
     },
   });
