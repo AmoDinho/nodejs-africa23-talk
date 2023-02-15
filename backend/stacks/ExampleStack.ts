@@ -1,6 +1,6 @@
 import { Api, StackContext } from '@serverless-stack/resources';
 
-export function ExampleStack({ stack }: StackContext) {
+export default function ExampleStack({ stack }: StackContext) {
   // Create the GraphQL API
   const api = new Api(stack, 'ApolloApi', {
     routes: {
