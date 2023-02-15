@@ -25,6 +25,7 @@
     "stacks/*"
   ],
   "dependencies": {
+    "@aws-cdk/aws-lambda": "^1.192.0",
     "@graphql-tools/schema": "^9.0.16",
     "apollo-server-lambda": "3.11.1",
     "chrome-aws-lambda": "^10.1.0",
