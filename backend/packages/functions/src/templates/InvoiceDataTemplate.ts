@@ -6,7 +6,7 @@ const head = `
     <title>Load confirmation</title>
     </head>
     `;
-export const InvoiceData = ({}) => `
+export const InvoiceDataTemplate = ({}) => `
 <html>
 ${head}
 <body>

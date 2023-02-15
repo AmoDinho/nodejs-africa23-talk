@@ -1,9 +1,10 @@
 import { ApolloServer } from 'apollo-server-lambda';
 import { typeDefs } from './schema';
+import { Query } from './resolvers/query';
+import { Mutation } from './resolvers/mutation';
 const resolvers = {
-  Query: {
-    hello: () => 'Hello, New World!',
-  },
+  Query,
+  Mutation,
 };
 
 const server = new ApolloServer({
