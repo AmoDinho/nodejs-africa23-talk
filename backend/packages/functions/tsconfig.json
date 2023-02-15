@@ -4,7 +4,7 @@
     "module": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@backend/core/*": ["../core/src/*"]
+      "@packages/core/*": ["../core/src/*"]
     }
   }
 }

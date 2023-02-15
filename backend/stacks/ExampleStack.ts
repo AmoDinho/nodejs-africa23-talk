@@ -4,7 +4,7 @@ export function ExampleStack({ stack }: StackContext) {
   // Create the GraphQL API
   const api = new Api(stack, 'ApolloApi', {
     routes: {
-      'POST/': {
+      'POST /': {
         type: 'graphql',
         function: 'packages/functions/src/lambda.handler',
       },
