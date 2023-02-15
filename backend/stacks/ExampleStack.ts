@@ -9,6 +9,9 @@ export default function ExampleStack({ stack }: StackContext) {
         timeout: 20,
       },
     },
+    bundle: {
+      externalModules: ['chrome-aws-lambda'],
+    },
   });
 
   // Show the API endpoint in output
