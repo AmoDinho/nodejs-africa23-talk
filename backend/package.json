@@ -26,6 +26,9 @@
   ],
   "dependencies": {
     "@graphql-tools/schema": "^9.0.16",
-    "apollo-server-lambda": "3.11.1"
+    "apollo-server-lambda": "3.11.1",
+    "chrome-aws-lambda": "^10.1.0",
+    "puppeteer": "^19.7.0",
+    "puppeteer-core": "^19.7.0"
   }
 }
