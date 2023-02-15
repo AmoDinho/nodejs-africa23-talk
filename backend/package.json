@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "sst start --profile=personalAccount",
-    "build": "sst build",
+    "build": "sst build --profile=personalAccount",
     "deploy": "sst deploy",
     "remove": "sst remove",
     "console": "sst console",
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@serverless-stack/cli": "1.15.11",
+    "@serverless-stack/node": "1.8.2",
     "@serverless-stack/resources": "1.15.11",
     "@tsconfig/node16": "^1.0.3",
     "aws-cdk-lib": "2.39.1",
