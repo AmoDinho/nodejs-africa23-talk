@@ -16,13 +16,14 @@ export default function ExampleStack({ stack }: StackContext) {
     defaults: {
       function: {
         timeout: 20,
+        environment: { AWS_ACCOUNT_NUMBER: process.env.AWS_ACCOUNT_NUMBER },
+        bundle: {
+          format: 'esm',
+          externalModules: ['chrome-aws-lambda', 'mitt'],
+        },
+        layers: [layer],
       },
     },
-    environment: { AWS_ACCOUNT_NUMBER: process.env.AWS_ACCOUNT_NUMBER },
-    bundle: {
-      externalModules: ['chrome-aws-lambda'],
-    },
-    layers: [layer],
   });
 
   // Show the API endpoint in output
