@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@serverless-stack/cli": "1.15.11",
-    "@serverless-stack/node": "1.8.2",
     "@serverless-stack/resources": "1.15.11",
     "@tsconfig/node16": "^1.0.3",
     "@types/aws-lambda": "^8.10.110",
@@ -27,8 +26,7 @@
   ],
   "dependencies": {
     "@aws-sdk/client-lambda": "3.180.0",
-    "@graphql-tools/schema": "^9.0.16",
-    "apollo-server-lambda": "3.11.1",
+    "apollo-server-lambda": "3.6.7",
     "chrome-aws-lambda": "^10.1.0",
     "puppeteer": "^19.7.0",
     "puppeteer-core": "^19.7.0"
