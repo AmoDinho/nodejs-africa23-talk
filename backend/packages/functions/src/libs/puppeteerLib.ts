@@ -1,4 +1,4 @@
-import chrome from 'chrome-aws-lambda';
+import chrome from '@sparticuz/chrome-aws-lambda';
 
 export const GenerateBuffer = async (content) => {
   try {

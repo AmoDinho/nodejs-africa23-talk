@@ -19,7 +19,7 @@ export default function ExampleStack({ stack }: StackContext) {
         environment: { AWS_ACCOUNT_NUMBER: process.env.AWS_ACCOUNT_NUMBER },
         bundle: {
           format: 'cjs',
-          externalModules: ['chrome-aws-lambda', 'mitt'],
+          externalModules: ['@sparticuz/chrome-aws-lambda', 'mitt'],
         },
         layers: [layer],
       },
