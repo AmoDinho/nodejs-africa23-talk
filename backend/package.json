@@ -27,8 +27,7 @@
   "dependencies": {
     "@aws-sdk/client-lambda": "3.180.0",
     "apollo-server-lambda": "3.6.7",
-    "chrome-aws-lambda": "^10.1.0",
-    "puppeteer": "^19.7.0",
-    "puppeteer-core": "^19.7.0"
+    "puppeteer": "15.5.0",
+    "puppeteer-core": "9.1.0"
   }
 }

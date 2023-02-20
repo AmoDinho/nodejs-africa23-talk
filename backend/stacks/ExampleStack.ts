@@ -3,7 +3,7 @@ import { AddLayerVersionPermissionCommand } from '@aws-sdk/client-lambda';
 import { AddLayerVersionPermissionCommandInput } from '@types/aws-lambda';
 export default function ExampleStack({ stack }: StackContext) {
   // Create the GraphQL AP
-  const layerArn: string = `arn:aws:lambda:us-east-1:${process.env.AWS_ACCOUNT_NUMBER}:layer:chrome-aws-lambda:22`;
+  const layerArn: string = `arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:31`;
 
   const layerConfig: AddLayerVersionPermissionCommandInput = {
     Action: 'lambda:AddLayerVersion',
@@ -18,7 +18,7 @@ export default function ExampleStack({ stack }: StackContext) {
         timeout: 20,
         environment: { AWS_ACCOUNT_NUMBER: process.env.AWS_ACCOUNT_NUMBER },
         bundle: {
-          format: 'esm',
+          format: 'cjs',
           externalModules: ['chrome-aws-lambda', 'mitt'],
         },
         layers: [layer],
