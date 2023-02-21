@@ -1,3 +1,3 @@
-import { CustomerTypes } from './customers';
+import { ICustomer } from './customers';
 
-export { CustomerTypes };
+export { ICustomer };
