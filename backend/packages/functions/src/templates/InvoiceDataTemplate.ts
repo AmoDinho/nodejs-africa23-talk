@@ -1,3 +1,4 @@
+import { ICustomer } from '../types';
 const head = `
 <head>
     <meta charset="UTF-8" />
@@ -369,7 +370,8 @@ const head = `
   </script>
     </head>
     `;
-export const InvoiceDataTemplate = () => `
+
+export const InvoiceDataTemplate = (customerInfo: ICustomer) => `
 <html>
 ${head}
 <body>
@@ -385,28 +387,28 @@ ${head}
   <div class="flex flex-row gap-5 p-10">
     <span class="flex flex-col">
       <h2 class="text-xl underline">Item</h2>
-      <p>Trip details</p>
+      <p>${customerInfo.tripName}</p>
     </span>
 
     <span class="flex flex-col">
       <h2 class="text-xl underline">Price</h2>
-      <p>Trip details</p>
+      <p>${customerInfo.price}</p>
     </span>
 
     <span class="flex flex-col">
       <h2 class="text-xl underline">Your Guide</h2>
-      <p>Guide name</p>
+      <p>${customerInfo.guide}</p>
     </span>
   </div>
 
   <div class="mt-16 flex p-4">
     <h2 class="text-2xl">Total:</h2>
-    <p class="ml-3 text-2xl italic">value</p>
+    <p class="ml-3 text-2xl italic">${customerInfo.price}</p>
   </div>
 
   <div class="mt-16 flex p-4">
     <h2 class="text-2xl">Account holder:</h2>
-    <p class="ml-3 text-2xl italic">User name</p>
+    <p class="ml-3 text-2xl italic">${customerInfo.name}</p>
   </div>
 </div>
 
