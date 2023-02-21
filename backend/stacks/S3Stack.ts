@@ -5,7 +5,7 @@ const InvoiceBucketResource = (stack: Construct) => {
   return new Bucket(stack, 'invoice-bucket');
 };
 
-const BackendStack = ({ stack }: Construct) => {
+const BackendStack = (stack: Construct) => {
   return {
     S3Resources: InvoiceBucketResource(stack),
   };
