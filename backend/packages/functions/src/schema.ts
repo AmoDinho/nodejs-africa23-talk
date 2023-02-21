@@ -1,13 +1,13 @@
 const typeDefs = `
 
-type CustomerInput {
+input CustomerInput {
   name:String!
   guide:String!
   price:String!
   tripName:String!
 }
 type Mutation {
-    generateInvoice(inpute:CustomerInput!):String!
+    generateInvoice(input:CustomerInput!):String!
 }
   type Query {
     hello: String

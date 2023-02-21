@@ -5,7 +5,7 @@ const generateInvoice = async (
   parent: undefined,
   { input }: { input: ICustomer }
 ): Promise<String | null> => {
-  const buffer = await GenerateBuffer(InvoiceDataTemplate());
+  const buffer = await GenerateBuffer(InvoiceDataTemplate(input));
   const buf = Buffer.from(buffer, 'base64');
   console.log('buff', buf);
   return buf;
