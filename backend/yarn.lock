@@ -3596,10 +3596,10 @@
   optionalDependencies:
     graphql "^16.5.0"
 
-"@sparticuz/chrome-aws-lambda@^17.1.3":
-  version "17.1.3"
-  resolved "https://registry.yarnpkg.com/@sparticuz/chrome-aws-lambda/-/chrome-aws-lambda-17.1.3.tgz#030702610eeb19a2c24340bbb9ce37ddff98b620"
-  integrity sha512-SeicVg+oVw04x7a0DqzSgzDK/DdBpVRql0jTC3bxfvrBGIt5oK2CgvP/oACuKIHNjrRZrY0oTww9/SsJ2o9ebg==
+"@sparticuz/chrome-aws-lambda@15.5.0":
+  version "15.5.0"
+  resolved "https://registry.yarnpkg.com/@sparticuz/chrome-aws-lambda/-/chrome-aws-lambda-15.5.0.tgz#5805f94ff78eb0608791a45fe235631362b10fb8"
+  integrity sha512-TT3Q6ui6whXuPczOWISIuyoYHhG7WsTSicVJZ6x37sQb3+H++rCGKeQVmoYzWr+54g4ryfg5X2gBSweXRI8GMw==
   dependencies:
     tar-fs "^2.1.1"
 

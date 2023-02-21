@@ -5,8 +5,9 @@ const generateInvoice = async (
   { name }: { name: string }
 ): Promise<String | null> => {
   const buffer = await GenerateBuffer(InvoiceDataTemplate());
-  console.log('buff', buffer);
-  return 'hi';
+  const buf = Buffer.from(buffer, 'base64');
+  console.log('buff', buf);
+  return buf;
 };
 
 export const Mutation = {

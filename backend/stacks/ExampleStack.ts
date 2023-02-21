@@ -18,7 +18,7 @@ export default function ExampleStack({ stack }: StackContext) {
         timeout: 20,
         environment: { AWS_ACCOUNT_NUMBER: process.env.AWS_ACCOUNT_NUMBER },
         bundle: {
-          format: 'cjs',
+          // format: 'esm',
           externalModules: ['@sparticuz/chrome-aws-lambda', 'mitt'],
         },
         layers: [layer],
