@@ -1,8 +1,9 @@
 import { GenerateBuffer } from '../libs';
 import { InvoiceDataTemplate } from '../templates';
+import { CustomerTypes } from '../types';
 const generateInvoice = async (
   parent: undefined,
-  { name }: { name: string }
+  { input }: { input: CustomerTypes }
 ): Promise<String | null> => {
   const buffer = await GenerateBuffer(InvoiceDataTemplate());
   const buf = Buffer.from(buffer, 'base64');
