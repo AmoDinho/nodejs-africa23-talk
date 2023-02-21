@@ -1,8 +1,13 @@
-import { Bucket } from '@serverless-stack/resources';
+import { Bucket, StackContext } from '@serverless-stack/resources';
 import { Construct } from 'constructs';
 
-const InvoiceBucketStack = (stack: Construct) => {
+const InvoiceBucketResource = (stack: Construct) => {
   return new Bucket(stack, 'invoice-bucket');
 };
 
-export default InvoiceBucketStack;
+const BackendStack = ({ stack }: Construct) => {
+  return {
+    S3Resources: InvoiceBucketResource(stack),
+  };
+};
+export default BackendStack;
