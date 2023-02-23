@@ -1,3 +1,3 @@
 import { ICustomer } from './customers';
-
-export { ICustomer };
+import { IS3PutTypes } from './s3';
+export { ICustomer, IS3PutTypes };
