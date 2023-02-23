@@ -10,4 +10,10 @@ const BackendStack = (stack: Construct) => {
     S3Resources: InvoiceBucketResource(stack),
   };
 };
-export default BackendStack;
+
+const ExampleStackResources = ({ stack }: StackContext) => {
+  return {
+    BackendStack: BackendStack(stack),
+  };
+};
+export default ExampleStackResources;

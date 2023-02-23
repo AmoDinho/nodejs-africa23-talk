@@ -1,16 +1,16 @@
 import { GraphQLApi, StackContext, use } from '@serverless-stack/resources';
 import { AddLayerVersionPermissionCommand } from '@aws-sdk/client-lambda';
 import { AddLayerVersionPermissionCommandInput } from '@types/aws-lambda';
-import BackendStack from './S3Stack';
+import ExampleStackResources from './S3Stack';
 export default function ExampleStack({ stack }: StackContext) {
   // Create the GraphQL AP
-  const { S3Resources } = use(BackendStack);
   const layerArn: string = `arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:31`;
 
   const layerConfig: AddLayerVersionPermissionCommandInput = {
     Action: 'lambda:AddLayerVersion',
     LayerName: layerArn,
   };
+  const { BackendStack } = use(ExampleStackResources);
 
   const layer = new AddLayerVersionPermissionCommand(layerConfig);
   const api = new GraphQLApi(stack, 'ApolloApi', {
@@ -20,9 +20,9 @@ export default function ExampleStack({ stack }: StackContext) {
         timeout: 20,
         environment: {
           AWS_ACCOUNT_NUMBER: process.env.AWS_ACCOUNT_NUMBER,
-          InvoiceBucketResource: S3Resources.bucketName,
+          InvoiceBucketResource: BackendStack.S3Resources.bucketName,
         },
-        permissions: [S3Resources.bucketName],
+        permissions: [BackendStack.S3Resources.bucketName],
         bundle: {
           // format: 'esm',
           externalModules: ['@sparticuz/chrome-aws-lambda', 'mitt'],
