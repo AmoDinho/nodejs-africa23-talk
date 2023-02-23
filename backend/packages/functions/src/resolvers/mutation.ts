@@ -13,6 +13,7 @@ const generateInvoice = async (
     Key: `${input.name}-invoice`,
     ACL: `public-read`,
     Body: buf,
+    ContentType: 'png',
   };
 
   const result = await putS3Object(params);

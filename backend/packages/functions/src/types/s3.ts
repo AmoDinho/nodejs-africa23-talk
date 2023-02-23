@@ -3,6 +3,7 @@ type IS3PutTypes = {
   Key: string;
   ACL: string;
   Body: any;
+  ContentType: string;
 };
 
 export { IS3PutTypes };

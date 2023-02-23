@@ -10,6 +10,7 @@ export const putS3Object = async <T>(args: IS3PutTypes): Promise<String> => {
     Key: args.Key,
     ACL: args.ACL,
     Body: args.Body,
+    ContentType: args.ContentType,
   };
 
   const command = new PutObjectCommand(params);
