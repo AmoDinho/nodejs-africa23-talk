@@ -1,3 +1,3 @@
 import { GenerateBuffer } from './puppeteerLib';
-
-export { GenerateBuffer };
+import { putS3Object } from './s3Lib';
+export { GenerateBuffer, putS3Object };

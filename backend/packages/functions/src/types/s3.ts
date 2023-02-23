@@ -2,7 +2,7 @@ type IS3PutTypes = {
   Bucket: string;
   Key: string;
   ACL: string;
-  Body: Blob;
+  Body: ArrayBuffer;
 };
 
 export { IS3PutTypes };

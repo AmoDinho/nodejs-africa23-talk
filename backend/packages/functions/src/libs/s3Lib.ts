@@ -4,10 +4,10 @@ import { IS3PutTypes } from '../types';
 export const putS3Object = async <T>(args: IS3PutTypes): Promise<String> => {
   const client = new S3Client({});
   const params = {
-    Bucket: args.bucket,
-    Key: args.key,
-    ACL: args.acl,
-    Body: args.body,
+    Bucket: args.Bucket,
+    Key: args.Key,
+    ACL: args.ACL,
+    Body: args.Body,
   };
 
   const command = new PutObjectCommand(params);
