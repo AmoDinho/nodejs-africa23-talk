@@ -9,13 +9,14 @@ const generateInvoice = async (
   const buffer = await GenerateBuffer(InvoiceDataTemplate(input));
   const buf = Buffer.from(buffer, 'base64');
   const params = {
-    Bucket: `invoice-bucket`,
+    Bucket: process.env.InvoiceBucketResource,
     Key: `${input.name}-invoice`,
     ACL: `public-read`,
     Body: buf,
     ContentType: 'png',
   };
 
+  console.log('hi', params);
   const result = await putS3Object(params);
 
   return result;

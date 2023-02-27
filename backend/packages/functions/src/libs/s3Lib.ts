@@ -3,7 +3,12 @@ import { IS3PutTypes } from '../types';
 
 export const putS3Object = async <T>(args: IS3PutTypes): Promise<String> => {
   const client = new S3Client({
-    endpoint: 'wss://auftctdig9.execute-api.us-east-1.amazonaws.com/dev',
+    region: 'ap-south-1',
+    // endpoint: 'http://invoice-bucket.s3.ap-south-1.amazonaws.com',
+    credentials: {
+      secretAccessKey: process.env.SECRET_ACCESS_KEY,
+      accessKeyId: process.env.ACCESS_KEY,
+    },
   });
   const params = {
     Bucket: args.Bucket,
@@ -15,7 +20,7 @@ export const putS3Object = async <T>(args: IS3PutTypes): Promise<String> => {
 
   const command = new PutObjectCommand(params);
   try {
-    await client.send(command).catch((e) => console.log('eeee', e));
+    await client.send(command);
     return `https://invoice-bucket.s3.us-east-1/amazonaws.com/${args.Key}`;
   } catch (e) {
     throw new Error(JSON.stringify(e));

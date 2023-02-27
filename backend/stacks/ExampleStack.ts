@@ -5,7 +5,9 @@ import { AddLayerVersionPermissionCommandInput } from '@types/aws-lambda';
 export default function ExampleStack({ stack }: StackContext) {
   // Create the GraphQL AP
   // const { BackendStack } = use(ExampleStackResources);
-  const InvoiceBucket = new Bucket(stack, 'invoice-bucket');
+  const InvoiceBucket = new Bucket(stack, 'invoice-bucket', {
+    region: 'us-east-1',
+  });
   const layerArn: string = `arn:aws:lambda:us-east-1:764866452798:layer:chrome-aws-lambda:31`;
 
   const layerConfig: AddLayerVersionPermissionCommandInput = {
@@ -22,6 +24,8 @@ export default function ExampleStack({ stack }: StackContext) {
         timeout: 20,
         environment: {
           AWS_ACCOUNT_NUMBER: process.env.AWS_ACCOUNT_NUMBER,
+          SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY,
+          ACCESS_KEY: process.env.ACCESS_KEY,
           InvoiceBucketResource: InvoiceBucket.bucketName,
         },
         permissions: [InvoiceBucket.bucketName],
