@@ -14,8 +14,9 @@ export const GenerateBuffer = async (content) => {
 
     const buffer = await page.screenshot({ path: 'default_image.png' });
     console.log('We have a buffer', buffer);
-    return buffer;
+
     await browser.close();
+    return buffer;
   } catch (e) {
     throw new Error(e);
   }
