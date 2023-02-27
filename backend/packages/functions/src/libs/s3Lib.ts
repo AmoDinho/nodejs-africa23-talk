@@ -5,10 +5,10 @@ export const putS3Object = async <T>(args: IS3PutTypes): Promise<String> => {
   const client = new S3Client({
     region: 'ap-south-1',
     // endpoint: 'http://invoice-bucket.s3.ap-south-1.amazonaws.com',
-    credentials: {
-      secretAccessKey: process.env.SECRET_ACCESS_KEY,
-      accessKeyId: process.env.ACCESS_KEY,
-    },
+    // credentials: {
+    //   secretAccessKey: process.env.SECRET_ACCESS_KEY,
+    //   accessKeyId: process.env.ACCESS_KEY,
+    // },
   });
   const params = {
     Bucket: args.Bucket,
