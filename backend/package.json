@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "sst start --profile=personalAccount",
     "build": "sst build --profile=personalAccount",
-    "deploy": "sst deploy",
+    "deploy": "sst deploy --verbose node --trace-warnings",
     "remove": "sst remove --profile=personalAccount --stage=dev --verbose",
     "removelocal": "sst remove --profile=personalAccount --stage=dev --verbose",
     "console": "sst console",
