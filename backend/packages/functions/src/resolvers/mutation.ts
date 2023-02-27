@@ -20,7 +20,7 @@ const generateInvoice = async (
   const result = await putS3Object(params);
 
   if (result === 'Successfull uploaded') {
-    return `https://${process.env.InvoiceBucketResource}.s3.${process.env.AWS_REGION}.amazonaws.com/${args.Key}`;
+    return `https://${process.env.InvoiceBucketResource}.s3.${process.env.AWS_REGION}.amazonaws.com/${params.Key}`;
   }
 };
 
