@@ -21,7 +21,8 @@ export const putS3Object = async <T>(args: IS3PutTypes): Promise<String> => {
   const command = new PutObjectCommand(params);
   try {
     await client.send(command);
-    return `https://invoice-bucket.s3.us-east-1/amazonaws.com/${args.Key}`;
+
+    return 'Successfull uploaded';
   } catch (e) {
     throw new Error(JSON.stringify(e));
   }
