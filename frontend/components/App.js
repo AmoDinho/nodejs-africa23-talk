@@ -1,7 +1,14 @@
+'use client';
+import { CacheProvider } from '@chakra-ui/next-js';
+import { ChakraProvider } from '@chakra-ui/react';
+
 export default function App({ children }) {
   return (
     <main>
-      {children}
+      <CacheProvider>
+        <ChakraProvider>{children}</ChakraProvider>
+      </CacheProvider>
+
       <style jsx global>{`
         * {
           font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono',
@@ -43,5 +50,5 @@ export default function App({ children }) {
         }
       `}</style>
     </main>
-  )
+  );
 }

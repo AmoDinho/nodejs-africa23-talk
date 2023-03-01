@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router'
-import Link from 'next/link'
+import { useRouter } from 'next/router';
+// import { Link } from '@chakra-ui/next-js';
 
 export default function Header() {
-  const { pathname } = useRouter()
+  const { pathname } = useRouter();
 
   return (
     <header>
-      <Link href="/" legacyBehavior>
+      {/* <Link href="/" legacyBehavior>
         <a className={pathname === '/' ? 'is-active' : ''}>Home</a>
       </Link>
       <Link href="/about" legacyBehavior>
@@ -19,7 +19,7 @@ export default function Header() {
       </Link>
       <Link href="/ssr" legacyBehavior>
         <a className={pathname === '/ssr' ? 'is-active' : ''}>SSR</a>
-      </Link>
+      </Link> */}
       <style jsx>{`
         header {
           margin-bottom: 25px;
@@ -34,5 +34,5 @@ export default function Header() {
         }
       `}</style>
     </header>
-  )
+  );
 }

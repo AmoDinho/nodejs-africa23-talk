@@ -1,3 +1,4 @@
+'use client';
 import App from '../components/App';
 import InfoBox from '../components/InfoBox';
 import Header from '../components/Header';
