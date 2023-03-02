@@ -19,7 +19,7 @@ const TripPropertyColum = ({ columnData }) => {
   );
 };
 
-const TripListItem = ({ tripDetail, onClick, createInvoice }) => {
+const TripListItem = ({ tripDetail, onClick, setSelectedTrip }) => {
   if (!tripDetail) return <p>Unable to render trip detail</p>;
 
   const guideData = {
@@ -39,12 +39,12 @@ const TripListItem = ({ tripDetail, onClick, createInvoice }) => {
 
   const handleOnChange = () => {
     onClick();
-    createInvoice(tripDetail);
+    setSelectedTrip(tripDetail);
   };
   return (
     <div
       className="flex flex-row m-5 p-10 cursor-pointer"
-      onClick={onChandleOnChangeick}
+      onClick={handleOnChange}
     >
       <TripPropertyColum columnData={guideData} />
       <TripPropertyColum columnData={priceData} />
@@ -55,6 +55,7 @@ const TripListItem = ({ tripDetail, onClick, createInvoice }) => {
 
 const TripList = ({ tripPayload }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [seletedTrip, setSelectedTrip] = useState({});
   const [mutateInvoice, { data, error, loading }] = useMutation(
     GENERATE_INVOICE_MUTATION
   );
@@ -72,7 +73,11 @@ const TripList = ({ tripPayload }) => {
       />
 
       {tripPayload.map((trip) => (
-        <TripListItem tripDetail={trip} onClick={showModal} />
+        <TripListItem
+          tripDetail={trip}
+          onClick={showModal}
+          setSelectedTrip={trip}
+        />
       ))}
     </div>
   );
