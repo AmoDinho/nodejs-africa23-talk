@@ -57,7 +57,17 @@ const TripList = ({ tripPayload }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [seletedTrip, setSelectedTrip] = useState({});
   const [mutateInvoice, { data, error, loading }] = useMutation(
-    GENERATE_INVOICE_MUTATION
+    GENERATE_INVOICE_MUTATION,
+    {
+      variables: {
+        CustomerInput: {
+          name: 'Tami Jetty',
+          guide: seletedTrip.guide,
+          price: seletedTrip.price,
+          tripName: seletedTrip.tripName,
+        },
+      },
+    }
   );
   const handleOk = () => setIsModalOpen(false);
   const handleCancel = () => setIsModalOpen(false);
@@ -69,7 +79,7 @@ const TripList = ({ tripPayload }) => {
       <InvoiceModal
         isModalOpen={isModalOpen}
         handleCancel={handleCancel}
-        handleOk={handleOk}
+        handleOk={mutateInvoice}
       />
 
       {tripPayload.map((trip) => (
