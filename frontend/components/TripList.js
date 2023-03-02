@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import InvoiceModal from '../components/Modal';
 const ErrorComponent = (payload) => {
   if (!payload) return <p className="text-red-300">Unable to render payload</p>;
 };
@@ -32,7 +34,7 @@ const TripListItem = ({ tripDetail }) => {
     value: tripDetail.listingName,
   };
   return (
-    <div className="flex flex-row m-5 p-10 cursor">
+    <div className="flex flex-row m-5 p-10 cursor-pointer">
       <TripPropertyColum columnData={guideData} />
       <TripPropertyColum columnData={priceData} />
       <TripPropertyColum columnData={listingData} />
@@ -41,12 +43,19 @@ const TripListItem = ({ tripDetail }) => {
 };
 
 const TripList = ({ tripPayload }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOk = () => setIsModalOpen(false);
+  const handleCancel = () => setIsModalOpen(false);
+  const showModal = () => setIsModalOpen(true);
   console.log('pp', tripPayload);
   if (!tripPayload) return <p>Unabale to render payload</p>;
   return (
     <div className="flex flex-col">
+      <InvoiceModal isModalOpen={isModalOpen} />
+
       {tripPayload.map((trip) => (
-        <TripListItem tripDetail={trip} />
+        <TripListItem tripDetail={trip} onClick={showModal} />
       ))}
     </div>
   );

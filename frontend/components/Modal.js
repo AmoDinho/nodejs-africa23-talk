@@ -1,6 +1,6 @@
 import { Modal } from 'antd';
 
-const Modal = ({ isModalOpen, handleOk, handleCancel, trip }) => {
+const InvoiceModal = ({ isModalOpen, handleOk, handleCancel, trip }) => {
   return (
     <Modal
       title="Basic Modal"
@@ -13,4 +13,4 @@ const Modal = ({ isModalOpen, handleOk, handleCancel, trip }) => {
   );
 };
 
-export default Modal;
+export default InvoiceModal;
