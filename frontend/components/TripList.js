@@ -6,7 +6,7 @@ const TripPropertyColum = ({ columnData }) => {
   return (
     <>
       <ErrorComponent payload={columnData} />
-      <div className="flex flex-col">
+      <div className="flex flex-col mr-3 p-3">
         <p>{columnData.title}</p>
         <p>{columnData.value}</p>
       </div>
@@ -32,7 +32,7 @@ const TripListItem = ({ tripDetail }) => {
     value: tripDetail.listingName,
   };
   return (
-    <div className="flex flex-row m-5 p-10 ">
+    <div className="flex flex-row m-5 p-10 cursor">
       <TripPropertyColum columnData={guideData} />
       <TripPropertyColum columnData={priceData} />
       <TripPropertyColum columnData={listingData} />
