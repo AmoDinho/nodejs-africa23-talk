@@ -1,6 +1,6 @@
 import { Modal } from 'antd';
 
-const InvoiceModal = ({ isModalOpen, handleOk, handleCancel, trip }) => {
+const InvoiceModal = ({ isModalOpen, handleOk, handleCancel, children }) => {
   return (
     <Modal
       title="Basic Modal"
@@ -9,6 +9,7 @@ const InvoiceModal = ({ isModalOpen, handleOk, handleCancel, trip }) => {
       onCancel={handleCancel}
     >
       <h1> Generate your invoice?</h1>
+      {children}
     </Modal>
   );
 };
