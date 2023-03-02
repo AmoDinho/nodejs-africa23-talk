@@ -1,14 +1,19 @@
 import App from '../components/App';
 import TripList from '../components/TripList';
+import listings from '../payloads/listings.json';
 const IndexPage = () => (
   <App>
     <div className="text-4xl text-black"> Generate Your Trip Invoices</div>
-    <TripList />
+    <TripList tripPayload={props.listings} />
   </App>
 );
 
 export async function getStaticProps() {
-  return { props: {} };
+  return {
+    props: {
+      listings: listings,
+    },
+  };
   // const apolloClient = initializeApollo()
   // await apolloClient.query({
   //   query: ALL_POSTS_QUERY,

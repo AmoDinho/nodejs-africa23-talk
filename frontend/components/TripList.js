@@ -14,7 +14,7 @@ const TripList = ({ tripPayload }) => {
   return (
     <div className="flex flex-col">
       {tripPayload.map((trip) => (
-        <TripList tripDetail={trip} />
+        <TripListItem tripDetail={trip} />
       ))}
     </div>
   );
