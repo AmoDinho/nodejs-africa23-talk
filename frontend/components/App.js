@@ -3,6 +3,10 @@ export default function App({ children }) {
     <main>
       {children}
       <style jsx global>{`
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
         * {
           font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono',
             'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New',

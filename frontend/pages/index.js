@@ -1,4 +1,3 @@
-'use client';
 import App from '../components/App';
 import InfoBox from '../components/InfoBox';
 import Header from '../components/Header';
@@ -13,6 +12,7 @@ const IndexPage = () => (
   <App>
     <Header />
     <InfoBox>ℹ️ This page shows how to use SSG with Apollo.</InfoBox>
+    <div className="bg-red-500">Hi tailwind</div>
     {/* <Submit />
     <PostList /> */}
   </App>

@@ -13,6 +13,7 @@ const SSRPage = () => (
   <App>
     <Header />
     <InfoBox>ℹ️ This page shows how to use SSR with Apollo.</InfoBox>
+
     {/* <Submit />
     <PostList /> */}
   </App>
