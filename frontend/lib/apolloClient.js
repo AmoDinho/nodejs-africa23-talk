@@ -1,5 +1,11 @@
 import { useMemo } from 'react';
-import { ApolloClient, HttpLink, InMemoryCache, from } from '@apollo/client';
+import {
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+  from,
+  createHttpLink,
+} from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 import { concatPagination } from '@apollo/client/utilities';
 import merge from 'deepmerge';
@@ -19,24 +25,16 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (networkError) console.log(`[Network error]: ${networkError}`);
 });
 
-const httpLink = new HttpLink({
-  uri: process.env.NEXT_APOLLO_SERVER_API_URL, // Server URL (must be absolute)
+const httpLink = new createHttpLink({
+  uri: 'https/hh', // Server URL (must be absolute)
   credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
 });
 
 function createApolloClient() {
   return new ApolloClient({
-    ssrMode: typeof window === 'undefined',
+    ssrMode: true,
     link: from([errorLink, httpLink]),
-    cache: new InMemoryCache({
-      typePolicies: {
-        Query: {
-          fields: {
-            allPosts: concatPagination(),
-          },
-        },
-      },
-    }),
+    cache: new InMemoryCache(),
   });
 }
 
@@ -81,6 +79,7 @@ export function addApolloState(client, pageProps) {
 
 export function useApollo(pageProps) {
   const state = pageProps[APOLLO_STATE_PROP_NAME];
+  console.log('eee', process.env.NEXT_APOLLO_SERVER_API_URL);
   const store = useMemo(() => initializeApollo(state), [state]);
   return store;
 }
