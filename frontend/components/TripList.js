@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { GENERATE_INVOICE_MUTATION } from './graphql';
+import { GENERATE_INVOICE_MUTATION } from '../graphql';
 import InvoiceModal from '../components/Modal';
 
 const ErrorComponent = (payload) => {
@@ -72,7 +72,7 @@ const TripList = ({ tripPayload }) => {
   const handleOk = () => setIsModalOpen(false);
   const handleCancel = () => setIsModalOpen(false);
   const showModal = () => setIsModalOpen(true);
-  console.log('pp', isModalOpen);
+  console.log('pp', isModalOpen, error);
   if (!tripPayload) return <p>Unabale to render payload</p>;
   return (
     <div className="flex flex-col">
@@ -80,6 +80,8 @@ const TripList = ({ tripPayload }) => {
         isModalOpen={isModalOpen}
         handleCancel={handleCancel}
         handleOk={mutateInvoice}
+        loading={loading}
+        returnedURL={data.generateInvoice}
       />
 
       {tripPayload.map((trip) => (
