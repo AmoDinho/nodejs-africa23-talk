@@ -16,7 +16,7 @@ const TripPropertyColum = ({ columnData }) => {
   );
 };
 
-const TripListItem = ({ tripDetail }) => {
+const TripListItem = ({ tripDetail, onClick }) => {
   if (!tripDetail) return <p>Unable to render trip detail</p>;
 
   const guideData = {
@@ -34,7 +34,7 @@ const TripListItem = ({ tripDetail }) => {
     value: tripDetail.listingName,
   };
   return (
-    <div className="flex flex-row m-5 p-10 cursor-pointer">
+    <div className="flex flex-row m-5 p-10 cursor-pointer" onClick={onClick}>
       <TripPropertyColum columnData={guideData} />
       <TripPropertyColum columnData={priceData} />
       <TripPropertyColum columnData={listingData} />
@@ -48,11 +48,15 @@ const TripList = ({ tripPayload }) => {
   const handleOk = () => setIsModalOpen(false);
   const handleCancel = () => setIsModalOpen(false);
   const showModal = () => setIsModalOpen(true);
-  console.log('pp', tripPayload);
+  console.log('pp', isModalOpen);
   if (!tripPayload) return <p>Unabale to render payload</p>;
   return (
     <div className="flex flex-col">
-      <InvoiceModal isModalOpen={isModalOpen} />
+      <InvoiceModal
+        isModalOpen={isModalOpen}
+        handleCancel={handleCancel}
+        handleOk={handleOk}
+      />
 
       {tripPayload.map((trip) => (
         <TripListItem tripDetail={trip} onClick={showModal} />
