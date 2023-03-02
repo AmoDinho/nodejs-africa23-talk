@@ -1,8 +1,9 @@
 import App from '../components/App';
-
+import TripList from '../components/TripList';
 const IndexPage = () => (
   <App>
     <div className="text-4xl text-black"> Generate Your Trip Invoices</div>
+    <TripList />
   </App>
 );
 
