@@ -16,12 +16,26 @@ const TripPropertyColum = ({ columnData }) => {
 
 const TripListItem = ({ tripDetail }) => {
   if (!tripDetail) return <p>Unable to render trip detail</p>;
+
+  const guideData = {
+    title: 'Guide Name',
+    value: tripDetail.guide.name,
+  };
+
+  const priceData = {
+    title: 'Amount',
+    value: tripDetail.price,
+  };
+
+  const listingData = {
+    title: 'Listing Name',
+    value: tripDetail.listingName,
+  };
   return (
     <div className="flex flex-row">
-      <TripPropertyColum title="Guide Name" value={tripDetail.guide.name} />
-
-      <p>{tripDetail.price}</p>
-      <p>{tripDetail.listingName}</p>
+      <TripPropertyColum columnData={guideData} />
+      <TripPropertyColum columnData={priceData} />
+      <TripPropertyColum columnData={listingData} />
     </div>
   );
 };
