@@ -55,24 +55,29 @@ const TripListItem = ({ tripDetail, onClick, setSelectedTrip }) => {
 
 const TripList = ({ tripPayload }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [seletedTrip, setSelectedTrip] = useState({});
+  const [seletedTrip, setSelectedTrip] = useState({
+    guide: { name: '' },
+    price: '',
+    listingName: '',
+  });
   const [mutateInvoice, { data, error, loading }] = useMutation(
     GENERATE_INVOICE_MUTATION,
     {
       variables: {
         CustomerInput: {
           name: 'Tami Jetty',
-          guide: seletedTrip.guide,
+          guide: seletedTrip.guide.name,
           price: seletedTrip.price,
-          tripName: seletedTrip.tripName,
+          tripName: seletedTrip.listingName,
         },
       },
     }
   );
+  const confirmPayload = (payload) => setSelectedTrip(payload);
   const handleOk = () => setIsModalOpen(false);
   const handleCancel = () => setIsModalOpen(false);
   const showModal = () => setIsModalOpen(true);
-  console.log('pp', isModalOpen, error);
+  console.log('pp', isModalOpen, error, seletedTrip);
   if (!tripPayload) return <p>Unabale to render payload</p>;
   return (
     <div className="flex flex-col">
@@ -81,14 +86,14 @@ const TripList = ({ tripPayload }) => {
         handleCancel={handleCancel}
         handleOk={mutateInvoice}
         loading={loading}
-        returnedURL={data.generateInvoice}
+        returnedURL={data}
       />
 
       {tripPayload.map((trip) => (
         <TripListItem
           tripDetail={trip}
           onClick={showModal}
-          setSelectedTrip={trip}
+          setSelectedTrip={() => confirmPayload(trip)}
         />
       ))}
     </div>
