@@ -19,7 +19,7 @@ const TripPropertyColum = ({ columnData }) => {
   );
 };
 
-const TripListItem = ({ tripDetail, onClick }) => {
+const TripListItem = ({ tripDetail, onClick, createInvoice }) => {
   if (!tripDetail) return <p>Unable to render trip detail</p>;
 
   const guideData = {
@@ -36,8 +36,16 @@ const TripListItem = ({ tripDetail, onClick }) => {
     title: 'Listing Name',
     value: tripDetail.listingName,
   };
+
+  const handleOnChange = () => {
+    onClick();
+    createInvoice(tripDetail);
+  };
   return (
-    <div className="flex flex-row m-5 p-10 cursor-pointer" onClick={onClick}>
+    <div
+      className="flex flex-row m-5 p-10 cursor-pointer"
+      onClick={onChandleOnChangeick}
+    >
       <TripPropertyColum columnData={guideData} />
       <TripPropertyColum columnData={priceData} />
       <TripPropertyColum columnData={listingData} />
@@ -47,7 +55,9 @@ const TripListItem = ({ tripDetail, onClick }) => {
 
 const TripList = ({ tripPayload }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [mutateInvoice, { data, error, loading }] = useMutation(
+    GENERATE_INVOICE_MUTATION
+  );
   const handleOk = () => setIsModalOpen(false);
   const handleCancel = () => setIsModalOpen(false);
   const showModal = () => setIsModalOpen(true);
