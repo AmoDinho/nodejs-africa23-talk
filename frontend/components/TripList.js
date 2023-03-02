@@ -32,7 +32,7 @@ const TripListItem = ({ tripDetail }) => {
     value: tripDetail.listingName,
   };
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row m-5 p-10 ">
       <TripPropertyColum columnData={guideData} />
       <TripPropertyColum columnData={priceData} />
       <TripPropertyColum columnData={listingData} />
