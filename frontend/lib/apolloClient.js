@@ -26,7 +26,9 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 });
 
 const httpLink = new createHttpLink({
-  uri: 'https/hh', // Server URL (must be absolute)
+  uri:
+    process.env.NEXT_PUBLIC_APOLLO_SERVER_API_URL ||
+    process.env.APOLLO_SERVER_API_URL, // Server URL (must be absolute)
   credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
 });
 
