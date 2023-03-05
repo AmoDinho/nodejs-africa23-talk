@@ -64,7 +64,7 @@ const TripList = ({ tripPayload }) => {
     GENERATE_INVOICE_MUTATION,
     {
       variables: {
-        CustomerInput: {
+        input: {
           name: 'Tami Jetty',
           guide: seletedTrip.guide.name,
           price: seletedTrip.price,

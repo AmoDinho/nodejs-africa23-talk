@@ -17,7 +17,17 @@ const InvoiceModal = ({
       onCancel={handleCancel}
     >
       <h1> Generate your invoice?</h1>
-      {returnedURL && <p> here is your invoice:{children}</p>}
+      {returnedURL && (
+        <a
+          href={returnedURL.generateInvoice}
+          rel="noreferrer"
+          target="_blank"
+          className="text-blue-500"
+        >
+          {' '}
+          Here is your invoice
+        </a>
+      )}
       {children}
     </Modal>
   );
