@@ -1,4 +1,4 @@
-import { Modal, Spin } from 'antd';
+import { Modal, Spin, Button } from 'antd';
 
 const InvoiceModal = ({
   isModalOpen,
@@ -8,15 +8,26 @@ const InvoiceModal = ({
   returnedURL,
   children,
 }) => {
-  if (loading) return <Spin />;
   return (
     <Modal
-      title="Basic Modal"
+      title="Generate your invoice"
       open={isModalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
+      footer={
+        <>
+          <Button type="dashed" onClick={handleCancel}>
+            Cancel
+          </Button>
+          <Button type="secondary" loading={loading} onClick={handleOk}>
+            Ok
+          </Button>
+        </>
+      }
     >
-      <h1> Generate your invoice?</h1>
+      {loading && <Spin />}
+      {!loading && !returnedURL && <h1> Generate your invoice?</h1>}
+
       {returnedURL && (
         <a
           href={returnedURL.generateInvoice}
