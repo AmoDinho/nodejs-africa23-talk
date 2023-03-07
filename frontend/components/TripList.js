@@ -81,6 +81,9 @@ const TripList = ({ tripPayload }) => {
   if (!tripPayload) return <p>Unabale to render payload</p>;
   return (
     <div className="flex flex-col">
+      <div className="text-center ">
+        <h1 className="text-4xl text-black "> Generate Your Trip Invoices</h1>
+      </div>
       <InvoiceModal
         isModalOpen={isModalOpen}
         handleCancel={handleCancel}
