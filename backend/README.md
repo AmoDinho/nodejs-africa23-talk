@@ -1,6 +1,22 @@
-# Talk Backend API
+# Backend
 
-GraphQL mutation
+This Backend uses SST, Apollo, AWS Lambda, s3 & Puppeteer.
+
+## Start up instructions
+
+Install all packages:
+
+```
+$ yarn install
+```
+
+Run the app locally:
+
+```
+$ yarn dev
+```
+
+### GraphQL mutation
 
 ```
 mutation {
@@ -8,3 +24,7 @@ mutation {
 }
 
 ```
+
+## License
+
+MIT
