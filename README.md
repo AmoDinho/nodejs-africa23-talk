@@ -12,6 +12,10 @@ The frontend is a simple NextJS App that uses Apollo Client, Tailwind & AntD.
 
 The backend uses SST in TypeScript to scafold a GraphQL Lambda function. Which uses Puppeteer to generate an screenshot which goes into an s3 Bucket.
 
+### Notices
+
+Please note that the version of SST in this backend repo is outdated. If you're going to try and clone this and use it in `prod` please rather get in touch so that I can provide some guidence about how to do so.
+
 # License
 
 MIT
